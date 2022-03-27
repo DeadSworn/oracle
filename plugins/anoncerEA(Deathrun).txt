@@ -1,0 +1,37 @@
+#include <sourcemod>
+#include <morecolors>
+new NextMSG = 0;
+public OnPluginStart()
+{
+	CreateTimer(20.0, Timer_Msg, _, TIMER_REPEAT);
+}
+public Action:Timer_Msg(Handle:timer, any:userid) // аВбаЗаОаВ аКаАаЖаДбаЕ 30 баЕаКбаНаД
+{
+	NextMSG++; // +1 аКаАаЖаДбаЕ 30 баЕаКбаНаД
+	switch(NextMSG)
+	{
+		case 1,6,11:
+		{
+			CPrintToChatAll("{green}!tp{lightblue} and {green}!fp{default} - {lightblue}third-person, first-person view.");
+		}
+		case 2,7,12:
+		{
+			CPrintToChatAll("{lightblue}Type {green}!hop {lightblue}to join another EA server!");
+		}
+		case 3,8,13:
+		{
+			CPrintToChatAll("{green}Type !store {lightblue} to check what the store has to offer");
+			CPrintToChatAll("{green}Type !credits {lightblue} to verify how many credits you own")
+		}
+		case 4,9,14:
+		{
+			CPrintToChatAll("{green}ts{lightblue} and {green}!ts{default} - {lightblue}Top speed.");
+			CPrintToChatAll("{green}tc{lightblue} and {green}!tc{default} - {lightblue}your record Speed.");
+		}
+		case 17:
+		{
+			CPrintToChatAll("{lightblue}Type {green}!group {lightblue}to join the community!");
+			CPrintToChatAll("{lightblue}Type {green}!clan {lightblue}to check out our clan!");
+		}
+	}
+}
